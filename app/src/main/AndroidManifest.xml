@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DatingApp">
-        <activity android:name=".LoginAndPasswordActivity"></activity>
+        <activity android:name=".SwapActivity"></activity>
+        <activity android:name=".LoginAndPasswordActivity" />
         <activity android:name=".GenderActivity" />
         <activity android:name=".SetDateActivity" />
         <activity android:name=".PasswordActivity" />
