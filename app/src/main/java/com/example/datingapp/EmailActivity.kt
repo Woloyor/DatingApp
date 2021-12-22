@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -17,9 +18,8 @@ class EmailActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
 
-    val passwordhint = findViewById<EditText>(R.id.passwordhint);
 
-    val emailhint = findViewById<EditText>(R.id.emailhint);
+    //var emailhint = findViewById<EditText>(R.id.emailhint);
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email)
@@ -29,19 +29,23 @@ class EmailActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         val backbtn = findViewById<ImageView>(R.id.backbtn);
-        val start = findViewById<ImageButton>(R.id.continuebtn)
+
 
         backbtn.setOnClickListener {
             val intent = Intent(this, NameActivity::class.java)
             startActivity(intent)
-
-
-            start.setOnClickListener {
-                singUpUser()
-            }
+        }
+        val start = findViewById<ImageButton>(R.id.continuebtn)
+        start.setOnClickListener {
+            singUpUser()
+          /*  val intent = Intent(this, PasswordActivity::class.java)
+            startActivity(intent)*/
         }
     }
-    fun singUpUser(){
+
+    fun singUpUser() {
+        val emailhint = findViewById<EditText>(R.id.emailhint);
+        val passwordhint = findViewById<EditText>(R.id.passwordhint);
         if (emailhint.text.toString().isEmpty()) {
             emailhint.error = "Please enter email"
             emailhint.requestFocus()
@@ -56,16 +60,19 @@ class EmailActivity : AppCompatActivity() {
         }
 
 
-      /*  auth.createUserWithEmailAndPassword(emailhint.text.toString(), passwordhint.text.toString())
+        auth.createUserWithEmailAndPassword(emailhint.text.toString(), passwordhint.text.toString())
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val intent = Intent(this, PasswordActivity::class.java)
                     startActivity(intent)
                 } else {
-                Toast.makeText(baseContext, "Sign Up failed. Try again after some time.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Sign Up failed. Try again after some time.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
                 }
-            }*/
+            }
     }
 }
+

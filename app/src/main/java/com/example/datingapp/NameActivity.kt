@@ -13,7 +13,7 @@ class NameActivity : AppCompatActivity() {
 
         val start = findViewById<ImageButton>(R.id.continuebtn)
         start.setOnClickListener {
-            val intent = Intent(this, EmailActivity::class.java)
+            val intent = Intent(this, LoginAndPasswordActivity::class.java)
             startActivity(intent)
         }
             val backbtn = findViewById<ImageView>(R.id.backbtn);

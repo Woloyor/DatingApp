@@ -15,6 +15,7 @@ class ForgotPassowrdActivity : AppCompatActivity() {
         start.setOnClickListener {
             val intent = Intent(this, LoginAndSingInActivity::class.java)
             startActivity(intent)
+        }
             val backbtn = findViewById<ImageView>(R.id.backbtn);
 
             backbtn.setOnClickListener{
@@ -23,4 +24,3 @@ class ForgotPassowrdActivity : AppCompatActivity() {
             }
         }
     }
-}

@@ -12,43 +12,47 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class PasswordActivity : AppCompatActivity() {
-
+class LoginAndPasswordActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-  //  var passwordhint = findViewById<EditText>(R.id.passwordhint);
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_password)
+        setContentView(R.layout.activity_login_and_password)
+
+
         // Initialize Firebase Auth
         auth = Firebase.auth
 
-
         val backbtn = findViewById<ImageView>(R.id.backbtn);
-        val start = findViewById<ImageButton>(R.id.continuebtn)
-        start.setOnClickListener {
-            val intent = Intent(this, SetDateActivity::class.java)
-            startActivity(intent)
-        }
+
 
         backbtn.setOnClickListener {
-            val intent = Intent(this, EmailActivity::class.java)
+            val intent = Intent(this, NameActivity::class.java)
             startActivity(intent)
         }
-
+        val start = findViewById<ImageButton>(R.id.continuebtn)
         start.setOnClickListener {
             singUpUser()
-        /*    val intent = Intent(this, SetDateActivity::class.java)
-            startActivity(intent)*/
-
+            /*  val intent = Intent(this, PasswordActivity::class.java)
+              startActivity(intent)*/
         }
     }
-
 
     fun singUpUser() {
         val emailhint = findViewById<EditText>(R.id.emailhint);
         val passwordhint = findViewById<EditText>(R.id.passwordhint);
+        if (emailhint.text.toString().isEmpty()) {
+            emailhint.error = "Please enter email"
+            emailhint.requestFocus()
+            return
+
+        }
+      /* if (Patterns.EMAIL_ADDRESS.matcher(emailhint.text.toString()).matches()) {
+            emailhint.error = "Please enter email"
+            emailhint.requestFocus()
+            return
+        }*/
         if (passwordhint.text.toString().isEmpty()) {
             passwordhint.error = "Please enter password"
             passwordhint.requestFocus()
@@ -57,9 +61,8 @@ class PasswordActivity : AppCompatActivity() {
         }
 
 
-        auth.createUserWithEmailAndPassword(null.toString(), passwordhint.text.toString())
-            .addOnCompleteListener(this)
-            { task ->
+        auth.createUserWithEmailAndPassword(emailhint.text.toString(), passwordhint.text.toString())
+            .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val intent = Intent(this, SetDateActivity::class.java)
                     startActivity(intent)
@@ -73,7 +76,3 @@ class PasswordActivity : AppCompatActivity() {
             }
     }
 }
-
-
-
-
