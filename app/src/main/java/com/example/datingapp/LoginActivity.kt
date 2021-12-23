@@ -1,5 +1,6 @@
 package com.example.datingapp
 
+import android.content.ContentValues.TAG
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.util.Patterns
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -25,8 +27,10 @@ class LoginActivity : AppCompatActivity() {
 
         val login = findViewById<ImageButton>(R.id.btncontinue)
         login.setOnClickListener {
-            val intent = Intent(this, SwapActivity::class.java)
-            startActivity(intent)
+
+            doLogin();
+            /*val intent = Intent(this, SwapActivity::class.java)
+            startActivity(intent)*/
         }
 
 
@@ -57,6 +61,50 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun doLogin() {
+        val emailhint = findViewById<EditText>(R.id.emailhint);
+        val passwordhint = findViewById<EditText>(R.id.passwordhint);
+        if (emailhint.text.toString().isEmpty()) {
+            emailhint.error = "Please enter email"
+            emailhint.requestFocus()
+            return
+
+        }
+        /* if (Patterns.EMAIL_ADDRESS.matcher(emailhint.text.toString()).matches()) {
+              emailhint.error = "Please enter email"
+              emailhint.requestFocus()
+              return
+          }*/
+        if (passwordhint.text.toString().isEmpty()) {
+            passwordhint.error = "Please enter password"
+            passwordhint.requestFocus()
+            return
+        }
+        auth.signInWithEmailAndPassword(emailhint.text.toString(), passwordhint.text.toString())
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    updateUI(user)
+                } else {
+                    updateUI(null)
+                }
+            }
+    }
+
+    fun updateUI(currentUser: FirebaseUser?){
+
+        if (currentUser!=null){
+            startActivity(Intent(this, SwapActivity::class.java))
+        }else{
+            Toast.makeText(
+                baseContext, "Login failed.",
+                Toast.LENGTH_SHORT
+            ).show()
+
+        }
+    }
+
     private fun forgotPassword(username: EditText) {
         if (username.text.toString().isEmpty()){
             return
