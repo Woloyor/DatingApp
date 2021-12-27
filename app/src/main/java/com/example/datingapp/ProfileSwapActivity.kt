@@ -5,18 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 
-class SwapActivity : AppCompatActivity() {
+class ProfileSwapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_swap)
+        setContentView(R.layout.activity_profile_swap)
+        val interest = findViewById<ImageView>(R.id.relationship);
 
-        val like = findViewById<ImageView>(R.id.likebtn);
 
-
-        like.setOnClickListener {
-            val intent = Intent(this, ProfileSwapActivity::class.java)
+        interest.setOnClickListener {
+            val intent = Intent(this, MatchActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

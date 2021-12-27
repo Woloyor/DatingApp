@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DatingApp">
-        <activity android:name=".SwapActivity"></activity>
+        <activity android:name=".MatchActivity"></activity>
+        <activity android:name=".ProfileSwapActivity" />
+        <activity android:name=".SwapActivity" />
         <activity android:name=".LoginAndPasswordActivity" />
         <activity android:name=".GenderActivity" />
         <activity android:name=".SetDateActivity" />

@@ -4,19 +4,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 
-class SwapActivity : AppCompatActivity() {
+class MatchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_swap)
+        setContentView(R.layout.activity_match)
 
-        val like = findViewById<ImageView>(R.id.likebtn);
+        val keepswipe = findViewById<TextView>(R.id.keepswipe);
 
 
-        like.setOnClickListener {
-            val intent = Intent(this, ProfileSwapActivity::class.java)
+        keepswipe.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-
     }
 }
