@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DatingApp">
-        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".ProfileSwapActivity" />
-        <activity android:name=".SwapActivity" />
+        <activity android:name=".MatchActivity" />
         <activity android:name=".LoginAndPasswordActivity" />
         <activity android:name=".GenderActivity" />
         <activity android:name=".SetDateActivity" />
@@ -21,7 +24,7 @@
         <activity android:name=".LoginAndSingInActivity" />
         <activity android:name=".ForgotPassowrdActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MatchActivity">
+        <activity android:name=".SwapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
