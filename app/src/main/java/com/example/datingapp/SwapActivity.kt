@@ -17,8 +17,17 @@ class SwapActivity : AppCompatActivity() {
 
         val filter = findViewById<ImageView>(R.id.filterbtn);
 
+        val likelist = findViewById<ImageView>(R.id.likelistbtn);
+
+        val profile = findViewById<ImageView>(R.id.usernavigatebtn);
+
         like.setOnClickListener {
             val intent = Intent(this, ProfileSwapActivity::class.java)
+            startActivity(intent)
+        }
+
+        profile.setOnClickListener {
+            val intent = Intent(this, ProfileInfoActivity::class.java)
             startActivity(intent)
         }
 
@@ -34,6 +43,10 @@ class SwapActivity : AppCompatActivity() {
 
         }
 
+        likelist.setOnClickListener {
+            val intent = Intent(this, LIkeListActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

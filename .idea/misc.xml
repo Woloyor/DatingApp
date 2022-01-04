@@ -5,13 +5,22 @@
       <map>
         <entry key="app/src/main/res/drawable/background_fill.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/drawable/ic_applyfilter.xml" value="0.23333333333333334" />
+        <entry key="app/src/main/res/drawable/ic_false.xml" value="0.22592592592592592" />
+        <entry key="app/src/main/res/drawable/ic_fi_edit.xml" value="0.22592592592592592" />
+        <entry key="app/src/main/res/drawable/ic_male.xml" value="0.22592592592592592" />
+        <entry key="app/src/main/res/drawable/ic_open_chat.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/drawable/ic_procseekbar.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/drawable/ic_seekbar.xml" value="0.23333333333333334" />
+        <entry key="app/src/main/res/drawable/ic_true.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/drawable/process_fill.xml" value="0.23333333333333334" />
-        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.2991684786083503" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_like_list.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_like_list_actitivy.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/activity_login_and_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/activity_match.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_profile_info.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_profile_swap.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_swap.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/another_view.xml" value="0.19610507246376813" />
